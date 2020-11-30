@@ -1,0 +1,16 @@
+#registration-form{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+#registration-form > *{
+    margin: 1em 0;
+}
+
+#submit-button{
+    background-color: deepskyblue;
+    padding: 0.5em 1em;
+    border-style: none;
+    border-radius: 10px;
+}

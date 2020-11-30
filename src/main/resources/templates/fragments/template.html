@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<div th:fragment="head">
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link rel="stylesheet" th:href="@{/css/style.css}">
+	    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+	</div>
+	<title></title>
+    </head>
+    <body>
+	<header th:fragment="header" id="header">
+	    <a class="link header-link" th:href="@{/}">TV-Shows</a>
+	    <a th:unless="${loggedIn}" class="link header-link" th:href="@{/login}">Login</a>
+	    <form th:if="${loggedIn}" th:action="@{/logout}" method="post">
+		<input class="header-link" id="logout-button" type="submit" value="Logout">
+	    </form>
+	</header>
+	<footer th:fragment="footer">
+	    <script type="text/javascript" th:src="@{/js/lodash.js}"></script>
+	    <script type="text/javascript" th:src="@{/js/header.js}"></script>
+	</footer>
+    </body>
+</html>

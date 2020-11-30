@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<div th:replace="fragments/template :: head"></div>
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+	<title>Login</title>
+    </head>
+    <body>
+	<header th:replace="fragments/template :: header"></header>
+	<main>
+	    <form id="login-form" th:action="@{/login}" method="post">
+		<h1>Login</h1>
+		<div>
+		    <label for="name">Username:</label>
+		    <br>
+		    <input type="text" name="username">
+		</div>
+		<div>
+		    <label for="password">Password:</label>
+		    <br>
+		    <input type="password" name="password">
+		</div>
+		<input type="submit" value="Login" class="button" id="login-button">
+		<a class="link" th:href="@{/register}">Don't have an account yet? Sign up here!</a>
+	    </form>
+	</main>
+	<footer th:replace="fragments/template :: footer"></footer>
+    </body>
+</html>

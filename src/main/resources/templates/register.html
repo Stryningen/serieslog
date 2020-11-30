@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<div th:replace="fragments/template :: head"></div>
+	<link rel="stylesheet" th:href="@{/css/register.css}">
+    <title>Register</title>
+</head>
+<body>
+	<header th:replace="fragments/template :: header"></header>
+	<main>
+	    <form id="registration-form" th:action="@{/register}" method="post" th:object="${user}">
+	        <h1>Signup</h1>
+	        <div>
+		    <p style="color:red" th:if="${#fields.hasErrors('name')}">Can not be empty</p>
+	            <label for="username">Username:</label>
+	            <br>
+		    <input type="text" th:field="*{name}">
+	        </div>
+	        <div>
+		    <p style="color:red" th:if="${#fields.hasErrors('email')}">Can not be empty</p>
+	            <label for="email">Email</label>
+	            <br>
+		    <input type="text" th:field="*{email}">
+	        </div>
+	        <div>
+		    <p style="color:red" th:if="${#fields.hasErrors('password')}">Can not be empty</p>
+	            <label for="password">Password:</label>
+	            <br>
+		    <input type="password" th:field="*{password}">
+	        </div>
+		<input type="submit" value="Register" id="submit-button">
+		<input type="hidden" th:field="*{id}">
+	    </form>
+	</main>
+	<footer th:replace="fragments/template :: footer"></footer>
+</body>
+</html>
