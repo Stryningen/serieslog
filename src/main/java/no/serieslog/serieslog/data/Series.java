@@ -1,9 +1,6 @@
 package no.serieslog.serieslog.data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Series {
@@ -11,13 +8,22 @@ public class Series {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private Integer mazeId;
+    @Column(unique = true)
     private String seriesName;
     private String seriesDescription;
     private String seriesImageUrl;
     private String seriesLinkUrl;
+    private Double averageScore;
+
+    public Series() {
+    }
+
+    public Series(String seriesName) {
+        this.seriesName = seriesName;
+    }
 
     //getters and setters
-
 
     public Integer getId() {
         return id;
@@ -57,5 +63,21 @@ public class Series {
 
     public void setSeriesLinkUrl(String seriesLinkUrl) {
         this.seriesLinkUrl = seriesLinkUrl;
+    }
+
+    public Double getAverageScore() {
+        return averageScore;
+    }
+
+    public void setAverageScore(Double averageScore) {
+        this.averageScore = averageScore;
+    }
+
+    public Integer getMazeId() {
+        return mazeId;
+    }
+
+    public void setMazeId(Integer mazeId) {
+        this.mazeId = mazeId;
     }
 }

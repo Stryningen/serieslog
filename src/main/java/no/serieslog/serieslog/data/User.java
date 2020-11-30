@@ -12,12 +12,21 @@ public class User {
     private Integer id;
     @Size(min = 3)
     @Column(unique = true)
-    private String Username;
+    private String name;
     @Size(min = 3)
     @Column(unique = true)
     private String email;
     @Size(min = 3)
     private String password;
+
+    public User() {
+    }
+
+    public User(@Size(min = 3) String name, @Size(min = 3) String email, @Size(min = 3) String password) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 
     //getters and setters
 
@@ -29,12 +38,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return Username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        Username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {

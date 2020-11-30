@@ -11,6 +11,17 @@ public class UserSeriesList {
     @Id
     private Integer seriesId;
 
+    private Double userScore;
+    private boolean favorite;
+
+    public UserSeriesList() {
+    }
+
+    public UserSeriesList(Integer userId, Integer seriesId) {
+        this.userId = userId;
+        this.seriesId = seriesId;
+    }
+
     @ManyToOne
     @JoinColumn(
             name = "userId",
@@ -61,5 +72,21 @@ public class UserSeriesList {
 
     public void setSeries(Series series) {
         this.series = series;
+    }
+
+    public Double getUserScore() {
+        return userScore;
+    }
+
+    public void setUserScore(Double userScore) {
+        this.userScore = userScore;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 }
