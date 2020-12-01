@@ -30,6 +30,9 @@ class SerieslogApplicationTests {
     @Autowired
     private UserSeriesListRepository userSeriesListRepository;
 
+    @Autowired
+    APIHandler handler;
+
     @Test
     void contextLoads() {
     }
@@ -166,5 +169,15 @@ class SerieslogApplicationTests {
         series = seriesRepository.findBySeriesName("test1103");
         usl = userSeriesListRepository.findBySeries(series);
         Assertions.assertEquals(2, usl.size());
+    }
+
+    @Test
+    public void testFindMazeSeriesById(){
+        Series series = handler.findMazeSeriesById(1);
+        Assertions.assertNotNull(series.getSeriesName());
+        Assertions.assertNotNull(series.getMazeId());
+        Assertions.assertNotNull(series.getSeriesDescription());
+        Assertions.assertNotNull(series.getSeriesImageUrl());
+        Assertions.assertNotNull(series.getSeriesLinkUrl());
     }
 }

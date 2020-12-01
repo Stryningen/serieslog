@@ -11,9 +11,9 @@
     </head>
     <body>
 	<header th:fragment="header" id="header">
-	    <a class="link header-link" th:href="@{/}">TV-Shows</a>
-	    <a th:unless="${loggedIn}" class="link header-link" th:href="@{/login}">Login</a>
-	    <form th:if="${loggedIn}" th:action="@{/logout}" method="post">
+	    <a class="link header-link header-item" th:href="@{/tvshows/search}">Search TV-Shows</a>
+	    <a th:unless="${loggedIn}" class="link header-link header-item" th:href="@{/login}">Login</a>
+	    <form th:if="${loggedIn}" class="header-item" th:action="@{/logout}" method="post">
 		<input class="header-link" id="logout-button" type="submit" value="Logout">
 	    </form>
 	</header>

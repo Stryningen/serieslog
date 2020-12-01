@@ -23,6 +23,11 @@ public class Series {
         this.seriesName = seriesName;
     }
 
+    @Override
+    public String toString() {
+        return "Series: "+ seriesName;
+    }
+
     //getters and setters
 
     public Integer getId() {
@@ -46,7 +51,11 @@ public class Series {
     }
 
     public void setSeriesDescription(String seriesDescription) {
-        this.seriesDescription = seriesDescription;
+        if (seriesDescription.length() >= 255/2){
+           this.seriesDescription = seriesDescription.substring(0, 125) + "...";
+        } else {
+            this.seriesDescription = seriesDescription;
+        }
     }
 
     public String getSeriesImageUrl() {

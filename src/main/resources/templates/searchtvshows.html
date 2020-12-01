@@ -2,23 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
 	<div th:replace="fragments/template :: head"></div>
-	<link rel="stylesheet" th:href="@{/css/index.css}">
+	<link rel="stylesheet" th:href="@{/css/searchtvshows.css}">
 	<title></title>
     </head>
     <body>
 	<header th:replace="fragments/template :: header"></header>
 	<main>
-		<div id="list-of-favorites">
-			<h2>List of Favorites</h2>
-			<ul class="unstyle-list">
-				<li>content to come</li>
-			</ul>
+		<div id="search-box">
+			<h2>Which show are you looking for?</h2>
+			<form id="search-form" action="">
+				<input type="text">
+				<input type="submit" value="search" class="button">
+			</form>
 		</div>
-		<div id="list-of-ranked">
-			<h2>All ranked</h2>
-			<ul class="unstyle-list">
-				<li>content to come</li>
-			</ul>
+		<div id="search-results">
+			<h2>Results:</h2>
 		</div>
 	</main>
 	<footer th:replace="fragments/template :: footer"></footer>

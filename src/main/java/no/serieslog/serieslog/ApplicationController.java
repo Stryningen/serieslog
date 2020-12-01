@@ -74,6 +74,11 @@ public class ApplicationController {
         return "redirect:/login";
     }
 
+    @GetMapping("/tvshows/search")
+    public String searchTVShows(){
+        return "searchtvshows";
+    }
+
     private boolean checkedIfLoggedIn(Model model, Principal principal) {
         model.addAttribute("loggedIn", true);
         if (principal == null) {

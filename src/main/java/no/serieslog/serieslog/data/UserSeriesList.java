@@ -40,6 +40,13 @@ public class UserSeriesList {
     )
     private Series series;
 
+    @Override
+    public String toString() {
+        return "User: " + user.getName() +
+                ", Series: " + series.getSeriesName() +
+                ", Score: " + userScore;
+    }
+
     //getters and setters
 
     public Integer getUserId() {
