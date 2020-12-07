@@ -1,26 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-	<div th:replace="fragments/template :: head"></div>
-	<link rel="stylesheet" th:href="@{/css/index.css}">
-	<title></title>
-    </head>
-    <body>
-	<header th:replace="fragments/template :: header"></header>
-	<main>
-		<div id="list-of-favorites">
-			<h2>List of Favorites</h2>
-			<ul class="unstyle-list">
-				<li>content to come</li>
-			</ul>
-		</div>
-		<div id="list-of-ranked">
-			<h2>All ranked</h2>
-			<ul class="unstyle-list">
-				<li>content to come</li>
-			</ul>
-		</div>
-	</main>
-	<footer th:replace="fragments/template :: footer"></footer>
-    </body>
+	<head>
+		<div th:replace="fragments/template :: head"></div>
+		<link rel="stylesheet" th:href="@{/css/index.css}">
+		<title></title>
+	</head>
+	<body>
+		<header th:replace="fragments/template :: header"></header>
+		<main>
+			<div th:if="${favorites}" id="list-of-favorites">
+				<h2>List of Favorites</h2>
+				<ul class="unstyle-list ranked-list">
+					<li th:each="item : ${favorites}">
+						<div>
+							<span class="tag">Name: </span><a class="link" th:href="@{'/tvshow/' + ${item.series.mazeId}}" th:text="${item.series.seriesName}"></a>
+						</div>
+						<div th:if="${item.series.averageScore}">
+							<span class="tag">Average score: </span><span th:text="${item.series.averageScore}"></span> 
+						</div>
+						<div th:unless="${item.series.averageScore}">
+							<span class="tag">Average score: </span><span>N/A</span> 
+						</div>
+						<div>
+							<span class="tag">Your score: </span><span th:text="${item.userScore}"></span> 
+						</div>
+						<div>
+							<form th:action="@{'/tvshow/rating/delete/' + ${item.series.id}}" method="post">
+								<input class="button" type="submit" value="delete">
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div th:if="${ranked}" id="list-of-ranked">
+				<h2>All ranked</h2>
+				<ul class="unstyle-list ranked-list">
+					<li th:each="item : ${ranked}">
+						<div>
+							<span class="tag">Name: </span><a class="link" th:href="@{'/tvshow/' + ${item.series.mazeId}}" th:text="${item.series.seriesName}"></a>
+						</div>
+						<div th:if="${item.series.averageScore}">
+							<span class="tag">Average score: </span><span th:text="${item.series.averageScore}"></span> 
+						</div>
+						<div th:unless="${item.series.averageScore}">
+							<span class="tag">Average score: </span><span>N/A</span> 
+						</div>
+						<div>
+							<span class="tag">Your score: </span><span th:text="${item.userScore}"></span> 
+						</div>
+						<div>
+							<form th:action="@{'/tvshow/rating/delete/' + ${item.series.id}}" method="post">
+								<input class="button" type="submit" value="delete">
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div th:if="${favorites == null && ranked == null}">
+				<p>No ranked titles. Search for new shows and rank them!</p>
+			</div>
+		</main>
+		<footer th:replace="fragments/template :: footer"></footer>
+	</body>
 </html>

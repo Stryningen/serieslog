@@ -11,7 +11,7 @@ public class UserSeriesList {
     @Id
     private Integer seriesId;
 
-    private Double userScore;
+    private Integer userScore;
     private boolean favorite;
 
     public UserSeriesList() {
@@ -81,11 +81,11 @@ public class UserSeriesList {
         this.series = series;
     }
 
-    public Double getUserScore() {
+    public Integer getUserScore() {
         return userScore;
     }
 
-    public void setUserScore(Double userScore) {
+    public void setUserScore(Integer userScore) {
         this.userScore = userScore;
     }
 

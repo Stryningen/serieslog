@@ -18,14 +18,16 @@ header{
 
 }
 
+.header-item{
+	margin: auto;
+}
+
 .header-item:first-child{
-	margin-left: 50%;
-	transform: translate(-50%, 0)
+	margin-left: 3em;
 }
 
 .header-item:last-child{
-	margin-left: auto;
-	margin-right: 1em;
+	margin-right: 3em;
 }
 
 header.sticky{

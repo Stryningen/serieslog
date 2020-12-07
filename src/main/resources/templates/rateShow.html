@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<div th:replace="fragments/template :: head"></div>
+		<link rel="stylesheet" th:href="@{/css/rateShow.css}">
+		<title></title>
+	</head>
+	<body>
+		<header th:replace="fragments/template :: header"></header>
+		<main>
+			<h1 th:text="${series.seriesName}">Name of Show</h1>
+			<img id="cover-art" th:src="${series.seriesImageUrl}" alt="cover-art">
+			<form id="rate-show-form" th:action="@{'/tvshow/' + ${series.mazeId}}" method="post">
+				<p th:if="${series.averageScore}">Average user score: <span th:text="${series.averageScore}">score</span></p>
+				<p th:unless="${series.averageScore}">Average user score: <span>Not Rated</span></p>
+				<div>
+					<label for="userScore">Your Score:</label>
+					<select th:unless="${usl}" id="score" name="userScore">
+						<option selected="selected" value="-1">Not scored</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+					<select th:if="${usl}" id="score" name="userScore">
+						<option th:if="${usl.userScore == -1}" selected="selected" value="-1">Not scored</option>
+						<option th:unless="${usl.userScore == -1}" value="-1">Not scored</option>
+						<option th:if="${usl.userScore == 1}" selected="selected" value="1">1</option>
+						<option th:unless="${usl.userScore == 1}" value="1">1</option>
+						<option th:if="${usl.userScore == 2}" selected="selected" value="2">2</option>
+						<option th:unless="${usl.userScore == 2}" value="2">2</option>
+						<option th:if="${usl.userScore == 3}" selected="selected" value="3">3</option>
+						<option th:unless="${usl.userScore == 3}" value="3">3</option>
+						<option th:if="${usl.userScore == 4}" selected="selected" value="4">4</option>
+						<option th:unless="${usl.userScore == 4}" value="4">4</option>
+						<option th:if="${usl.userScore == 5}" selected="selected" value="5">5</option>
+						<option th:unless="${usl.userScore == 5}" value="5">5</option>
+						<option th:if="${usl.userScore == 6}" selected="selected" value="6">6</option>
+						<option th:unless="${usl.userScore == 6}" value="6">6</option>
+						<option th:if="${usl.userScore == 7}" selected="selected" value="7">7</option>
+						<option th:unless="${usl.userScore == 7}" value="7">7</option>
+						<option th:if="${usl.userScore == 8}" selected="selected" value="8">8</option>
+						<option th:unless="${usl.userScore == 8}" value="8">8</option>
+						<option th:if="${usl.userScore == 9}" selected="selected" value="9">9</option>
+						<option th:unless="${usl.userScore == 9}" value="9">9</option>
+						<option th:if="${usl.userScore == 10}" selected="selected" value="10">10</option>
+						<option th:unless="${usl.userScore == 10}" value="10">10</option>
+					</select>
+
+				</div>
+				<div>
+					<label for="favorite">Favorite: </label>
+					<select th:unless="${usl}" id="select-favorite" name="favorite">
+						<option value="false">not favorite</option>
+						<option value="true">favorite</option>
+					</select>
+					<select th:if="${usl}" id="select-favorite" name="favorite">
+						<option value="false">not favorite</option>
+						<option th:if="${usl.favorite}" selected="selected" value="true">favorite</option>
+						<option th:unless="${usl.favorite}" value="true">favorite</option>
+					</select>
+				</div>
+				<input class="button" type="submit" value="submit">
+			</form>
+		</main>
+		<footer th:replace="fragments/template :: footer"></footer>
+	</body>
+</html>

@@ -10,13 +10,20 @@
 	<main>
 		<div id="search-box">
 			<h2>Which show are you looking for?</h2>
-			<form id="search-form" action="">
-				<input type="text">
+			<form id="search-form" th:action="@{/tvshows/search}" method="post">
+				<input type="text" name="query">
 				<input type="submit" value="search" class="button">
 			</form>
 		</div>
-		<div id="search-results">
+		<div th:if="${listOfShows}" id="search-results">
 			<h2>Results:</h2>
+			<div class="flex-container-row">
+				<div th:each="show: ${listOfShows}" class="card">
+					<h3 th:text="${show.seriesName}"></h3>
+					<a class="link" th:href="${show.seriesLinkUrl}"><img th:src="${show.seriesImageUrl}" alt="cover art"></a>
+					<a class="link" th:href="@{'/tvshow/' + ${show.mazeId}}">Rank show</a>
+				</div>
+			</div>
 		</div>
 	</main>
 	<footer th:replace="fragments/template :: footer"></footer>

@@ -2,7 +2,39 @@
 	margin: 2em 0;
 }
 
+#search-results > h2{
+	text-align: center;
+}
+
 #search-box > *{
 	margin: 1em 0;
 	text-align: center;
+}
+
+.flex-container-row{
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.card{
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	margin: 1em;
+	padding: 0.5em;
+	width: 236px;
+	border-radius: 5px;
+	border: solid black 1px;
+	box-shadow: 4px 2px 8px black;
+}
+
+.card > *{
+	margin: 0.5em 0;
+}
+
+.card > h3{
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

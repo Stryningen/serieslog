@@ -180,4 +180,10 @@ class SerieslogApplicationTests {
         Assertions.assertNotNull(series.getSeriesImageUrl());
         Assertions.assertNotNull(series.getSeriesLinkUrl());
     }
+
+    @Test
+    public void testFindMazeSeriesByQuery(){
+        List<Series> list = handler.findMazeSeriesByQuery("star");
+        Assertions.assertTrue(list.size() >= 10);
+    }
 }

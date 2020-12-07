@@ -12,4 +12,6 @@ public interface UserSeriesListRepository extends CrudRepository<UserSeriesList,
     List<UserSeriesList> findByUser(User user);
 
     List<UserSeriesList> findBySeries(Series series);
+
+    UserSeriesList findByUserAndSeries(User user, Series series);
 }

@@ -1,0 +1,13 @@
+#rate-show-form{
+	display: flex;
+	flex-flow: column;
+	margin-top: 1em;
+}
+
+#cover-art{
+	margin-top: 1em;
+}
+
+#rate-show-form > *{
+	margin: 1em auto;
+}

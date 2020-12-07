@@ -1,1 +1,35 @@
+#list-of-ranked, #list-of-favorites{
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	width: 100%;
+}
 
+.ranked-list{
+	display: flex;
+	flex-flow: column;
+	width: 100%;
+}
+
+.ranked-list > li{
+	display: flex;
+	margin: 1.5em 0;
+	margin-left: 20%;	
+}
+
+.ranked-list > li > div{
+	width: 24%;
+}
+
+.ranked-list > li > div:first-child{
+	width: 30%;	
+}
+
+.ranked-list > li > div:last-child{
+	width: 18%;	
+	text-align: right;
+}
+
+.tag{
+	font-weight: bold;
+}
